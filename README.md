@@ -1,6 +1,7 @@
 # divbioR
 App para actividades de la asignatura [Diversidad Biológica I](https://fcefyn.unc.edu.ar/facultad/secretarias/academica/departamentos/diversidad-biologica-y-ecologica/diversidad-biologica-i/), de la carera Ciencias Biológicas (FCEFyN, UNC).
 
+La aplicación puede ejecutarse [AQUI](https://pastornicolas.github.io/divbioR/)
 
 ------------------------------------------------------------------------
 
