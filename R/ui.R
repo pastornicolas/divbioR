@@ -1,3 +1,6 @@
+library(shiny)
+library(shinyMatrix)
+
 ui <- fluidPage(
   useShinyjs(),
   use_gotop(src="fas fa-chevron-circle-up",
