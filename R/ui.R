@@ -31,7 +31,7 @@ ui <- fluidPage(
       h3("Análisis estadístico", style = "text-align: center;"),
       hr(style = "border-top: 2px solid black;"),
       verbatimTextOutput("welch"),
-      uiOutput("welch_html")
+      #uiOutput("welch_html")
       #tableOutput("welch_table")
     )
   )
