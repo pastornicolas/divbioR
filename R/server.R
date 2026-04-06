@@ -1,9 +1,16 @@
 library(shiny)
 library(shinyMatrix)
 
+
+m <- matrix(round(runif(50, 0, 3)), 10, 5, dimnames = list(
+  #m <- matrix(0, 10, 5, dimnames = list(
+  c("Nativo 1", "Nativo 2", "Nativo 3", "Nativo 4", "Nativo 5",
+    "Exótico 1", "Exótico 2", "Exótico 3", "Exótico 4", "Exótico 5"),
+  c("Grupo 1", "Grupo 2", "Grupo 3", "Grupo 4", "Grupo 5")))
+
 # servidor
 server <- function(input, output) {
-
+  
   calc <- reactive({
     req(input$sample)
     mat <- apply(input$sample, 2, as.numeric)
@@ -15,8 +22,8 @@ server <- function(input, output) {
       # replicas para test estadístico
       nat = as.vector(mat[1:5, ]),
       exo = as.vector(mat[6:10, ])
-      )
-    })
+    )
+  })
   
   output$barplot <- renderPlot({
     c <- calc()
@@ -31,16 +38,16 @@ server <- function(input, output) {
                                bty="n", xpd = T),
             main = "Riqueza por grupo")
     abline(h = c(mean(c$natbygr), mean(c$exobygr)), col = c("darkgreen", "darkred")
-                 , lty = "dashed", lwd=5)
+           , lty = "dashed", lwd=5)
     legend("bottomright", legend = c("Riq. Media Nativo", "Riq. Media Exótico"),
            horiz=T, inset = c(0, -0.25), xpd = T, bty="n",
            col = c("darkgreen", "darkred"),
            lty = 2, lwd = 2)
-     
+    
   })
   
   output$welch <- renderPrint({
-
+    
     c <- calc()
     test <- t.test(c$nat, c$exo, var.equal = FALSE)
     
