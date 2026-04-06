@@ -14,7 +14,7 @@ ui <- fluidPage(
       tags$h4("Datos de riqueza"),
       matrixInput(
         "sample",
-        value = m,
+        value = m_empty,
         rows = list(
           extend = F,
           names = T
@@ -22,7 +22,10 @@ ui <- fluidPage(
         cols = list(
           names = T
         )
-      )
+      ),
+      #actionButton(inputId = "load_btn", label = "Cargar datos aleatorios")
+      actionButton("reset_btn", "Vaciar los datos"),
+      actionButton("random_btn", "Datos aleatorios")
     ),
     mainPanel(
       width = 6,
